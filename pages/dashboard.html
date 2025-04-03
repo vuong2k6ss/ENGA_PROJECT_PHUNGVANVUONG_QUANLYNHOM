@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quản Lý Dự Án</title>
+    <link rel="stylesheet" href="../css/dashboard.css" />
+  </head>
+  <body>
+    <header>
+      <div class="header-container">
+        <div class="logo">Quản Lý Dự Án</div>
+        <nav>
+          <a href="#">Dự Án</a>
+          <a href="#">Nhiệm Vụ của tôi</a>
+          <a href="#">Đăng Xuất</a>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="content">
+        <h1>Quản Lý Dự Án Nhóm</h1>
+        <div class="addSearch">
+          <button class="add-project-btn">+ Thêm Dự Án</button>
+          <input
+            type="text"
+            class="search-input"
+            placeholder="Tìm kiếm dự án"
+          />
+        </div>
+        <div class="projectList">Danh Sách Dự Án</div>
+        <table>
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên Dự Án</th>
+              <th>Hành Động</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+        <div class="pagination">
+          <button class="page-btn">
+            <img src="../assets/icons/Arrow/Chevron_Left_MD.png" alt="" />
+          </button>
+          <button class="page-btn-number">1</button>
+          <button class="page-btn-number">2</button>
+          <button class="page-btn-number">3</button>
+          <button class="page-btn">
+            <img src="../assets/icons/Arrow/Chevron_Right_MD.png" alt="" />
+          </button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>&copy; 2025 Team management. All rights reserved.</p>
+    </footer>
+    <div id="projectModal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Thêm/Sửa dự án</h2>
+        <hr style="border: 1px solid rgb(231, 222, 222); width: 100%" />
+        <br />
+        <label for="projectName">Tên dự án</label><br />
+        <input type="text" id="projectName" />
+        <small class="error-message" id="errorName">Tên dự án đã tồn tại</small
+        ><br />
+        <label for="projectDescription">Mô tả dự án</label><br />
+        <textarea id="projectDescription"></textarea><br /><br />
+        <hr style="border: 1px solid rgb(226, 220, 220); width: 100%" />
+        <br /><br />
+        <div class="modal-buttons">
+          <button
+            style="
+              background-color: gray;
+              color: white;
+              border: 1px solid white;
+              border-radius: 7px;
+            "
+            class="cancel-btn"
+          >
+            Hủy
+          </button>
+          <button
+            style="
+              background-color: blue;
+              color: white;
+              border: 1px solid white;
+              border-radius: 7px;
+            "
+            class="save-btn"
+          >
+            Lưu
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div id="deleteModal" class="delete-modal">
+      <div class="delete-modal-content">
+        <span class="close">&times;</span>
+        <h2>Xác nhận xoá</h2>
+        <br /><br />
+        <hr style="border: 1px solid rgb(231, 222, 222); width: 100%" />
+        <br />
+        <p>Bạn chắc chắn muốn xoá dự án này?</p>
+        <br /><br />
+        <hr style="border: 1px solid rgb(231, 222, 222); width: 100%" />
+        <div class="modal-buttons">
+          <button
+            style="
+              background-color: gray;
+              color: white;
+              border: 1px solid white;
+              border-radius: 7px;
+            "
+            class="cancel-btn"
+          >
+            Hủy
+          </button>
+          <button
+            style="
+              background-color: #dc3545;
+              color: white;
+              border: 1px solid white;
+              border-radius: 7px;
+            "
+            class="delete-btn"
+          >
+            Xóa
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/dashboard.js"></script>
+  </body>
+</html>

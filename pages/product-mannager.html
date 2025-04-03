@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chi Tiết Dự Án</title>
+    <link rel="stylesheet" href="../css/product-manager.css" />
+    <style>
+      .title-members {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+      .member-section {
+        min-width: 250px;
+        display: flex;
+        flex-direction: row;
+      }
+      .members {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: row;
+      }
+      .member {
+        display: flex;
+        align-items: center;
+        margin-top: 5px;
+      }
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: #ddd;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+      .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        justify-content: center;
+        align-items: center;
+      }
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 5px;
+        width: 300px;
+      }
+      .close-btn {
+        cursor: pointer;
+        float: right;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="navbar">
+      <div>Quản Lý Dự Án</div>
+      <div class="nav-links">
+        <a href="#">Dự Án</a>
+        <a href="#">Nhiệm Vụ Của Tôi</a>
+        <a href="#">Đăng Xuất</a>
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="header-section">
+        <div class="title-members">
+          <div class="project-info">
+            <h1>Xây dựng website thương mại điện tử</h1>
+            <p>
+              Dự án nhằm phát triển một nền tảng thương mại điện tử với các tính
+              năng như giỏ hàng, thanh toán và quản lý sản phẩm.
+            </p>
+          </div>
+          <div class="member-section">
+            <h3>Thành viên</h3>
+            <button onclick="openModal('memberModal')">
+              + Thêm thành viên
+            </button>
+            <div class="members">
+              <div class="member">
+                <div class="avatar">AN</div>
+                <div class="info">
+                  <p>An Nguyễn</p>
+                  <span>Project owner</span>
+                </div>
+              </div>
+              <div class="member">
+                <div class="avatar">BA</div>
+                <div class="info">
+                  <p>Bách Nguyễn</p>
+                  <span>Frontend developer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="top-bar">
+        <button class="btn btn-primary" onclick="openModal('taskModal')">
+          + Thêm nhiệm vụ
+        </button>
+        <div class="search-sort">
+          <select>
+            <option value="">Sắp xếp theo</option>
+            <option value="priority">Ưu tiên</option>
+            <option value="date">Ngày bắt đầu</option>
+          </select>
+          <input type="text" placeholder="Tìm kiếm nhiệm vụ" />
+        </div>
+      </div>
+
+      <h2>Danh Sách Nhiệm Vụ</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Tên Nhiệm Vụ</th>
+            <th>Người Phụ Trách</th>
+            <th>Ưu Tiên</th>
+            <th>Ngày Bắt Đầu</th>
+            <th>Hạn Chót</th>
+            <th>Tiến Độ</th>
+            <th>Hành Động</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Soạn thảo đề cương dự án</td>
+            <td>An Nguyễn</td>
+            <td><span class="priority high">Cao</span></td>
+            <td>02-24</td>
+            <td>02-27</td>
+            <td><span class="status warning">Có rủi ro</span></td>
+            <td>
+              <button class="btn btn-warning">Sửa</button>
+              <button class="btn btn-danger" onclick="openModal('deleteModal')">
+                Xóa
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div id="taskModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('taskModal')">&times;</span>
+        <h3>Thêm Nhiệm Vụ</h3>
+        <input type="text" placeholder="Tên nhiệm vụ" />
+        <button>Thêm</button>
+      </div>
+    </div>
+
+    <div id="deleteModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('deleteModal')"
+          >&times;</span
+        >
+        <h3>Xác nhận xóa</h3>
+        <p>Bạn có chắc muốn xóa nhiệm vụ này không?</p>
+        <button>Hủy</button>
+        <button>Xóa</button>
+      </div>
+    </div>
+
+    <div id="memberModal" class="modal">
+      <div class="modal-content">
+        <span class="close-btn" onclick="closeModal('memberModal')"
+          >&times;</span
+        >
+        <h3>Thêm Thành Viên</h3>
+        <input type="text" placeholder="Tên thành viên" />
+        <button>Thêm</button>
+      </div>
+    </div>
+
+    <script>
+      function openModal(id) {
+        document.getElementById(id).style.display = "flex";
+      }
+      function closeModal(id) {
+        document.getElementById(id).style.display = "none";
+      }
+    </script>
+  </body>
+</html>
